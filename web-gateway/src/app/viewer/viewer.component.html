@@ -1,0 +1,26 @@
+<div #container class='app-viewer'>
+  <div class="app-viewer-state-message">
+    <span *ngIf="state === 'waiting'">Waiting for stream...</span>
+    <span *ngIf="state === 'loading'">Loading stream...</span>
+    <span *ngIf="state === 'error'">There was an error loading the stream.</span>
+    <span *ngIf="state === 'inactive'">Stream is inactive.</span>
+  </div>
+
+  <div *ngIf="state == 'ready'" class='viewer-play-button' (click)="play()"></div>
+
+  <video #video></video>
+
+  <div class="app-viewer-controls">
+    <div class="time">
+      <span>{{timeSinceStartOfStream | date:'H:mm':'+0000'}}</span>
+      <span class="millis">{{timeSinceStartOfStream | date:':ss':'+0000'}}</span>
+    </div>
+    <i *ngIf="!isStreamLoaded()" class="control-button play disabled icon-play"></i>
+    <i *ngIf="state === 'stopped' || state === 'ready'"
+       (click)="play()" class="control-button play icon-play"></i>
+    <i *ngIf="state === 'playing'" (click)="stop()" class="control-button stop icon-stop"></i>
+    <i (click)="refresh()" class="control-button reset icon-repeat"></i>
+    <i (click)="fullscreen()" class="control-button full-screen icon-fullscreen"></i>
+<!--    TODO: implement volume control <i class="control-button volume icon-volume-up"></i>-->
+  </div>
+</div>

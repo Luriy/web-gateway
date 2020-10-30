@@ -1,0 +1,8 @@
+<div class="settings-overlay">
+    <app-client-settings-overlay *ngIf="userRole === 'client'; else host"></app-client-settings-overlay>
+    <button (click)="close()">close</button>
+</div>
+
+<ng-template #host>
+    <app-host-settings-overlay></app-host-settings-overlay>
+</ng-template>

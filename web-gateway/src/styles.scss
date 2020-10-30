@@ -1,0 +1,120 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import "./assets/styles/fontello/css/fontello.css";
+// @import './assets/css/fontawesome-all.min.css';
+@import "./assets/sass/main.scss";
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Arial";
+}
+
+/* app-viewer styles */
+$app-viewer-aspect-ratio: 16 / 9;
+$app-viewer-height: 960px;
+.app-viewer {
+  border: 1px solid #777;
+  position: relative;
+  width: 100%;
+  max-height: $app-viewer-height;
+  // max-width: $app-viewer-height * $app-viewer-aspect-ratio;
+}
+
+.app-viewer video {
+  width: 100%;
+  height: 100%;
+  // hides native video controls when video is in fullscreen mode.
+  &::-webkit-media-controls {
+    display:none !important;
+  }
+}
+
+.app-viewer .viewer-play-button {
+  position: absolute;
+  background-image: url('/assets/images/video-play-button.png');
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  z-index: 1;
+  cursor: pointer;
+}
+.app-viewer:hover, .app-viewer:focus {
+  .app-viewer-controls {
+    opacity: 100%;
+  }
+}
+.app-viewer .app-viewer-state-message {
+  background: rgba(51, 51, 51, 0.5);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  span {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+$app-viewer-controls-height: 20px;
+.app-viewer .app-viewer-controls {
+  z-index: 2;
+  opacity: 0; // hidden by default
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+
+  background: #333;
+  color: #b0b0b0;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: $app-viewer-controls-height;
+  line-height: $app-viewer-controls-height;
+
+  border-radius: $app-viewer-controls-height;
+  padding: 10px 20px;
+
+  user-select: none;
+  font-weight: bold;
+  .control-button {
+    width: 15px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  > * {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .time .millis {
+    font-weight: normal;
+  }
+  .disabled {
+    opacity: 0.5;
+  }
+}
+
+/* app-settings-overlay styles */
+
+.settings-overlay {
+    background-color: #FFF;
+    height: 400px;
+    width: 600px;
+}
+
+.settings-overlay h2 {
+    color: #000;
+}
+
+
+app-video-chat {
+
+    .video-container {
+        height: 400px;
+    }
+
+}

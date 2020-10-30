@@ -1,0 +1,15 @@
+
+.chat-images {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 128px;
+    background-color: black;
+    .chat-image {
+        width: 33.33%;
+        padding: 8px;
+        img {
+            height: 250px;
+            width: 100%;  
+        }
+    }
+}
